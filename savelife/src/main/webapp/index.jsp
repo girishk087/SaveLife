@@ -1,6 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
 
+<%@taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
+
+
 <html lang="en">
 <head>
 <meta charset="utf-8">
@@ -13,11 +16,11 @@
 
 <!--Bootstrap css  -->
 <link rel="stylesheet"
-	href="<%=request.getContextPath() %>/resources/css/bootstrap.min.css"
+	href="<%=request.getContextPath()%>/resources/css/bootstrap.min.css"
 	type="text/css">
-	
+
 <link rel="stylesheet"
-	href="<%=request.getContextPath() %>/resources/css/justified-nav.css"
+	href="<%=request.getContextPath()%>/resources/css/justified-nav.css"
 	type="text/css">
 
 <!-- Custome fonts -->
@@ -34,7 +37,7 @@
 
 <!-- Bootstrap core javascript -->
 <script
-	src="<%=request.getContextPath() %>/resources/js/bootstrap.min.js"></script>
+	src="<%=request.getContextPath()%>/resources/js/bootstrap.min.js"></script>
 
 
 </head>
@@ -42,30 +45,47 @@
 	<div class="container">
 		<div class="masthead">
 			<h3>Save Life</h3>
-				<nav>
-					<ul class="nav nav-justified">
-						<li>
-							<a href="#">Home</a>
-						</li>
-						<li>
-							<a href="#">About Blood</a>
-						</li>
-						<li>
-							<a href="#">Compaigns</a>
-						</li>
-						<li>
-							<a href="#">Raise a Request</a>
-						</li>
-						<li>
-							<a href="#">About Us</a>
-						</li>
-					</ul>
-				</nav>
+			<nav>
+				<ul class="nav nav-justified">
+					<li><a href="#">Home</a></li>
+					<li><a href="#">About Blood</a></li>
+					<li><a href="#">Compaigns</a></li>
+					<li><a href="#">Raise a Request</a></li>
+					<li><a href="#">About Us</a></li>
+				</ul>
+			</nav>
 		</div>
-		<div class="container text-center">
-			<a href="<%= request.getContextPath() %>/welcome">Click Here</a>
+		<div class="container-fluid">
+		<%-- 	 <a href="<%= request.getContextPath() %>/welcome">Click Here</a> 
+			 <a href="<%= request.getContextPath() %>/register">Click here</a> --%>
+			<form:form method="POST" action="/savelife/register">
+				<div class="row">
+					<div class="col-md-4 col-md-offset-8">
+						<label for="Name">Name</label>
+						<div class="form-group">
+
+							<input type="text" class="form-control" name="userName"
+								id="userName">
+						</div>
+
+						<div class="form-group">
+							<label for="email">Email</label> <input type="email"
+								name="userEmail" id="userEmail" class="form-control">
+						</div>
+
+						<div class="form-group">
+							<label for="phoneNumber">Contact Number</label> <input
+								type="text" class="form-control" name="contactNumber"
+								id="contactNumber">
+						</div>
+
+						<div class="text-center">
+							<button class="btn btn-primary" id="submit" value="submit">Register</button>
+						</div>
+					</div>
+				</div>
+			</form:form>
 		</div>
-		
 	</div>
 </body>
 </html>

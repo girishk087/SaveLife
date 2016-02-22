@@ -2,7 +2,6 @@ package org.savelife.controller;
 
 import org.savelife.model.User;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -10,25 +9,22 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
 @Controller
-public class DonnerController {
+public class UserController {
 	
 	
-	@RequestMapping(value ="/welcome", method = RequestMethod.GET )
-	public ModelAndView welcome(@ModelAttribute User userVo, 
+	@RequestMapping(value="/register", method = RequestMethod.POST)
+	public ModelAndView addUser(@ModelAttribute User userVo,
 			BindingResult result){
 		
-		if(result.hasErrors()){
-			return new ModelAndView("WelCome");
-		}
+		/*
+		String name = userVo.getUserName();
+		System.out.println(name);
+		String email = userVo.getUserEmail();
+		System.out.println(email);
+		String contact = userVo.getContactNumber();
+		System.out.println(contact);*/
 		
 		return new ModelAndView("welcome");
 	}
 
-	@RequestMapping(value = "/getuser")
-	
-	public String getUser(Model model){
-		model.addAttribute("message", "hello user");
-		
-		return "getuser";
-	}
 }
